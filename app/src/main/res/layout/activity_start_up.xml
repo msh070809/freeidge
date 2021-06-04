@@ -3,6 +3,7 @@
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gra"
     android:orientation="vertical">
 
 
@@ -10,26 +11,27 @@
         android:id="@+id/imgid"
         android:src="@drawable/refr"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        />
     <TextView
-        android:textSize="30sp"
-        android:textColor="@color/black"
+        android:textSize="45sp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:layout_above="@id/textid"
-        android:paddingBottom="50dp"
-        android:text="어플리케이션 이름"
+        android:paddingBottom="70dp"
+        android:text="Freeidge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/title"/>
 
 
     <TextView
         android:textSize="15sp"
         android:id="@+id/textid"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:text="안드루이드 - @2021"
+        android:text="2021 Andruid "
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -1,7 +1,6 @@
-package com.example.intro;
+package com.example.intro.firebase;
 
 public class Context {
-
 
     String recipe;
     String image;

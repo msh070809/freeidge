@@ -1,24 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="387dp"
+        android:layout_height="252dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="254dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/tbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="186dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/refr" />
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView33"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="300dp"
+            android:background="@color/cardview_shadow_start_color"
+            android:completionThreshold="1"
+            android:gravity="center_vertical"
+            android:hint="  검색어를 입력하세요."
+            android:textColorHint="#555555"
+            android:singleLine="true"/>
 
 
 
-    <TextView
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/glayout33"
+        android:layout_width="396dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginBottom="180dp"
+        android:columnCount="5"
+        android:rowCount="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <android.widget.Button
+        android:id="@+id/tbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Page_1"
-        android:textSize="100dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="검색 완료"
-        android:id="@+id/searchBtn"/>
+        android:layout_marginBottom="102dp"
+        android:text="태그완료"
+        android:textColor="@color/white"
+        android:background="@drawable/gra"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

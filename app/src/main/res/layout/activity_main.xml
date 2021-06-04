@@ -7,30 +7,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/Theme.AppCompat">
-
-            <TextView
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Bottom_Navigation"
-                android:textStyle="bold"
-                android:textColor="#fff"
-                android:textSize="30dp" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
 
     <FrameLayout
         android:id="@+id/content_layout"
@@ -42,9 +18,9 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:itemIconTint="@color/dot_dark_screen1"
-        app:itemTextColor="@color/colorPrimary"
+        android:background="@drawable/gra"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/menu_bottomnavigationview" />
 
 

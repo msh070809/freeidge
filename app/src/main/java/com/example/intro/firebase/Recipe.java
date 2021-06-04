@@ -1,4 +1,4 @@
-package com.example.intro;
+package com.example.intro.firebase;
 
 public class Recipe {
 
@@ -20,6 +20,4 @@ public class Recipe {
     public void setImage(String image) {
         Image = image;
     }
-
-
 }

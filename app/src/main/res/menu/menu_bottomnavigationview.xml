@@ -3,14 +3,17 @@
 
     <item
         android:id="@+id/navigation_1"
+        android:icon="@drawable/baseline_kitchen_black_24dp"
         android:title="Freeidge" />
 
     <item
         android:id="@+id/navigation_2"
+        android:icon="@drawable/baseline_thumb_up_black_24dp"
         android:title="즐겨찾기" />
 
     <item
         android:id="@+id/navigation_3"
+        android:icon="@drawable/baseline_login_black_24dp"
         android:title="최근 방문 기록" />
 
 </menu>

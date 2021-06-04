@@ -2,6 +2,7 @@ package com.example.intro.welcome;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,10 +17,16 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_up);
 
+        //상태바 제거
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //액션바 사라지게 하기
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+        setContentView(R.layout.activity_start_up);
 
         Thread timerThread = new Thread(){
             public void run(){
