@@ -1,6 +1,7 @@
 package com.example.intro.firebase;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,8 @@ public class BookMarkListAdapter extends RecyclerView.Adapter<BookMarkListAdapte
                 .into(holder.iv_Image);
         holder.tv_Context.setText(arrayList.get(position).getTitle());
         holder.tv_Ingredient.setText(arrayList.get(position).getIngredient());
+        holder.tv_Context.setTextSize(20);
+        holder.tv_Context.setTextColor(Color.BLACK);
     }
 
     @Override

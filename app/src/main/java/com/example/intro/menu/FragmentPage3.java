@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.intro.firebase.BookMarkListAdapter;
 import com.example.intro.R;
 
+import com.example.intro.firebase.DetailList;
 import com.example.intro.firebase.TotalRecipe;
 import com.example.intro.firebase.BookMarkListAdapter;
 import com.example.intro.firebase.TotalRecipe;
@@ -38,8 +40,9 @@ public class FragmentPage3 extends Fragment {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<TotalRecipe> arrayList=new ArrayList<>();
+    int i;
     Context ct;
-    Button refreshbtn;
+    Button refreshbtn, resetbtn;
     public interface Callback{
         void success(TotalRecipe data);
         void fail(String errorMessage);
@@ -48,25 +51,33 @@ public class FragmentPage3 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         database= FirebaseDatabase.getInstance();//파이어베이스 데이터베이스 연동
-        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.activity_bookmark,container,false);
+        ViewGroup v = (ViewGroup)inflater.inflate(R.layout.activity_recent,container,false);
         ct=container.getContext();
         recyclerView=(RecyclerView)v.findViewById(R.id.RecipeListView);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         refreshbtn=(Button)v.findViewById(R.id.btnrefresh);
+        resetbtn=(Button)v.findViewById(R.id.btnreset);
 
+        final String[][] key = new String[1][100];
         database=FirebaseDatabase.getInstance();
         databaseReference=database.getReference("data");
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot Snapshot) {
                 arrayList.clear();
+                i=0;
+
                 for(DataSnapshot snapshot : Snapshot.getChildren())
                 {
                     if(snapshot.child("Recent").getValue()!=null && snapshot.child("Recent").getValue().equals("1")) {
                         TotalRecipe totalRecipe=snapshot.getValue(TotalRecipe.class);
                         arrayList.add(totalRecipe);
+                        key[0][i] =snapshot.getKey();
+                        i++;
+
                     }
+
                 }
                 adapter = new BookMarkListAdapter(arrayList,getActivity());
                 recyclerView.setAdapter(adapter);
@@ -83,6 +94,17 @@ public class FragmentPage3 extends Fragment {
                 refresh();
             }
         });
+        resetbtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                for(int n=0; n<i;n++) {
+
+                    databaseReference = database.getReference("data/" + key[0][n]);
+                    databaseReference.child("Recent").setValue("0");
+                }
+                refresh();
+            }
+        });
         setHasOptionsMenu(true);
         return v;
     }
@@ -94,4 +116,5 @@ public class FragmentPage3 extends Fragment {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.detach(this).attach(this).commit();
     }
+
 }

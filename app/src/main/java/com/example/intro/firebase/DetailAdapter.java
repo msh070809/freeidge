@@ -1,5 +1,6 @@
 package com.example.intro.firebase;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,8 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.CustomView
                 .load(arrayList.get(position).getImage())
                 .into(holder.iv_Image);
         holder.tv_Context.setText(arrayList.get(position).getRecipe());
+        holder.tv_Context.setTextSize(15);
+        holder.tv_Context.setTextColor(Color.BLACK);
 
     }
 

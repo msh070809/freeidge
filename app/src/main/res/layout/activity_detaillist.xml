@@ -13,7 +13,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/gra"
+            android:background="@drawable/gra4"
             android:theme="@style/Theme.AppCompat">
 
             <Button
@@ -22,7 +22,12 @@
                 android:layout_height="wrap_content"
                 android:text="←"
                 android:textSize="30dp"
-                android:background="#00ff0000"/>
+                android:textStyle="bold"
+                android:backgroundTint="#F4D8AE"
+                android:shadowColor="@color/black"
+                android:shadowDx="10"
+                android:shadowDy="10"
+                />
 
             <View
                 android:layout_width="0dp"

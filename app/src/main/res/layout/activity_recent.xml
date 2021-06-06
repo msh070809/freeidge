@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    >
+    android:layout_weight="1">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -12,24 +13,35 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/gra4"
-            android:theme="@style/Theme.AppCompat">
+            android:background="@drawable/gra2"
+            android:theme="@style/Theme.AppCompat"
+            >
 
-            <Button
-                android:id="@+id/btnReturn"
-                android:layout_width="60dp"
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnrefresh"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="←"
-                android:textSize="30dp"
+                android:text="refresh"
+                android:textSize="15dp"
                 android:textStyle="bold"
+                android:background="@drawable/customripple"
                 android:backgroundTint="#F4D8AE"
                 android:shadowColor="@color/black"
-                android:shadowDx="10"
-                android:shadowDy="10"
                 />
 
-
-
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnreset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="reset"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:background="@drawable/customripple"
+                android:backgroundTint="#F34449"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                />
 
         </androidx.appcompat.widget.Toolbar>
 

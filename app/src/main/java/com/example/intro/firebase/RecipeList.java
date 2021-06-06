@@ -2,7 +2,9 @@ package com.example.intro.firebase;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -10,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.intro.MainActivity;
 import com.example.intro.R;
 import com.example.intro.firebase.RecipeListAdapter;
 import com.example.intro.firebase.TotalRecipe;
+import com.example.intro.welcome.WelcomeActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +33,7 @@ public class RecipeList extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<TotalRecipe> arrayList;
+    Button backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,7 @@ public class RecipeList extends AppCompatActivity {
 
         database= FirebaseDatabase.getInstance();//파이어베이스 데이터베이스 연동
         recyclerView=findViewById(R.id.RecipeListView);
+        backbtn=findViewById(R.id.btnReturn);
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -62,6 +68,15 @@ public class RecipeList extends AppCompatActivity {
 
         database= FirebaseDatabase.getInstance();
         databaseReference=database.getReference("data");
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecipeList.this, MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot Snapshot) {
@@ -89,7 +104,10 @@ public class RecipeList extends AppCompatActivity {
                 Log.e("MainActivity", String.valueOf(error.toException()));
 
             }
+
+
         });
+
         adapter = new RecipeListAdapter(arrayList,this);
         recyclerView.setAdapter(adapter);
     }

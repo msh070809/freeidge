@@ -3,6 +3,7 @@ package com.example.intro.welcome;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class WelcomeActivity extends AppCompatActivity {
         actionBar.hide();
 
         setContentView(R.layout.activity_start_up);
+
 
         Thread timerThread = new Thread(){
             public void run(){

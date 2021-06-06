@@ -7,16 +7,16 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.widget.Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@drawable/gra" />
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         >
+
         <ImageView
             android:id="@+id/iv_image"
             android:layout_width="80dp"
@@ -41,5 +41,11 @@
                 android:layout_margin="5dp"
                 />
         </LinearLayout>
+
     </LinearLayout>
+    <android.widget.Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#C6C2C2" />
 </LinearLayout>

@@ -13,8 +13,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.intro.MainActivity;
 import com.example.intro.R;
 import com.example.intro.firebase.DetailAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -76,10 +78,13 @@ public class DetailList extends AppCompatActivity {
                     if(snapshot.child("title").getValue().equals(DetailIntent.getStringExtra("Title")))
                     {
                         key[0] =snapshot.getKey();
+                        databaseReference=database.getReference("data/"+key[0]);
+                        databaseReference.child("Recent").setValue("1");
                         for(DataSnapshot k : snapshot.child("Context").getChildren())
                         {
                             Context context=k.getValue(Context.class);
                             arrayList.add(context);
+
                         }
                     }
                 }
@@ -99,6 +104,8 @@ public class DetailList extends AppCompatActivity {
                     public void onClick(View v) {
                         databaseReference=database.getReference("data/"+key[0]);
                         databaseReference.child("isMarked").setValue("0");
+                        Toast.makeText(DetailList.this, "즐겨찾기가 취소되었습니다.", Toast.LENGTH_SHORT).show();
+
                     }
                 }
         );
@@ -108,6 +115,7 @@ public class DetailList extends AppCompatActivity {
                     public void onClick(View v) {
                         databaseReference=database.getReference("data/"+key[0]);
                         databaseReference.child("isMarked").setValue("1");
+                        Toast.makeText(DetailList.this, "즐겨찾기가 완료되었습니다.", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
